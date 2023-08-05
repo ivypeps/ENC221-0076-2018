@@ -2,18 +2,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Thika Hotels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENC221-0076/2018</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <style>
     #map {
-      height: 400px;
+      height: 700px;
+      left:0;
     }
+    .bar{
+      background-color: #555;
+      margin: 0;
+    }
+    .shead{
+      color:white;
+      text-align: center;
+      width: 100%;
+      
+    }
+    
+    
   </style>
 </head>
 <body>
-  <h1> Thika Hotels</h1>
+  <div class="bar">
+    <h1 class="shead"><b>Hotels in Thika</b></h1>
+  </div>
   <div id="map"></div>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="app.js"></script>
+
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([-1.0347754804006226, 37.08621729074512], 13);
+
+    // Add the tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Add markers with custom popups
+     var marker1 = L.marker([-1.0384515566178127, 36.884922973650305]).addTo(map);
+    marker1.bindPopup("<div class='popup-content'><b>Viva garden</b>").openPopup();
+    var marker2 = L.marker([-1.024038867972253, 37.06767740416007]).addTo(map);
+    marker2.bindPopup("<b>Blue post</b>").openPopup();
+    var marker3= L.marker([-1.0399374513809405, 37.07405000723379]).addTo(map);
+    marker3.bindPopup("<b>Elton hotel</b>").openPopup();
+    var marker4 = L.marker([-1.0402000690209763, 37.06321737668039]).addTo(map);
+    marker4.bindPopup("<b>Cravers</b>").openPopup();
+    var marker5= L.marker([-1.038174410719, 37.06819874121113]).addTo(map);
+    marker5.bindPopup("<b>Right venue</b>").openPopup();
+
+  </script>
 </body>
 </html>
